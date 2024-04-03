@@ -1,0 +1,11 @@
+.TaskInput{
+    margin-bottom: 15px;
+}
+.formContainer{
+    display: inline-block;
+}
+.input{
+     width: 150px;
+     height: 25px;
+     margin-right: 10px;
+}

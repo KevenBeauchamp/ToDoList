@@ -1,0 +1,61 @@
+.greenButton{
+    background-color: rgb(19, 134, 19);
+}
+.blueButton{
+    background-color: rgb(8, 8, 133);
+    margin-right: 15px;;
+}
+.warningButton{
+    background-color: rgb(211, 40, 24);
+}
+.allTasks {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .allTasks td, .allTasks th {
+    border: 0.2px solid #fffcfc;
+    padding: 8px;
+  }
+  
+  .allTasks tr:nth-child(even){background-color: #0f0f0f;}
+  
+  /* .allTasks tr:hover {background-color: #ddd;} */
+  
+  .allTasks th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    /* background-color: #f6f7f6; */
+    color: white;
+  }
+  .imagesproject{
+    width: 45px;
+    height: 40px;
+  }
+
+  .createTask{
+    margin-bottom: 15px;
+  }
+  .createTask input{
+    margin-left: 10px;
+  }
+  .title{
+    width: 375px;
+  }
+  .case{
+    width: 200px;
+  }
+  .dateTask{
+    width: 115px;
+  }
+  thead th{
+    text-align: center !important;
+  }
+  .alignVertical{
+    display: inline-block;
+  }
+  .alignVertical input{
+    margin-bottom: 5px;
+  }
