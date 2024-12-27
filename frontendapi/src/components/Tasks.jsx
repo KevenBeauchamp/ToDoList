@@ -5,9 +5,14 @@ import classes from '../css/Tasks.module.css';
 import images from "../assets/cochevert.jpg"
 import { useRef, useState } from "react";
 import { deleteTask, editTask, editTaskToFait } from "../action/task.action";
-
+import checkbox from "../assets/verify.png";
 export default function Tasks(task){
-    const taskData = task.task
+    const tasks = useSelector((state) => state.taskReducer);
+    const taskFormat = Array.from(tasks);
+    console.log("task :", taskFormat)
+    
+    const taskData = task.task;
+    console.log("taskdata :", taskData)
     const [changeToEdit,upadteToEdit] = useState(false);
     const [editContent, setEditContent] = useState(taskData.title);
     const [editFait, setEditFait] = useState(taskData.fait);
@@ -54,17 +59,7 @@ export default function Tasks(task){
       
     return(
         <>
-            <div id="task"> 
-                <table className={classes.allTasks}>
-                    <thead>
-                        <tr>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Statut</th>
-                        <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            {/* <div>  */}
                         {
                             !changeToEdit ?      
                                 <tr key={taskData.id}>
@@ -74,7 +69,7 @@ export default function Tasks(task){
                                         
                                     </td>
                                     <td className={classes.dateTask}>{taskData.date_task}</td>
-                                    <td id="fait">{(taskData.fait==1? <img className={classes.imagesproject} src={images} alt="" />:<form ref={form} onSubmit={(e) => handleEditForFait(e)}><Button  onClick={handleChangeToFait}  className={classes.greenButton}>Fait</Button></form>)}</td>
+                                    <td id="fait">{(taskData.fait==1? <img className={classes.imagesproject} src={checkbox} alt="" />:<form ref={form} onSubmit={(e) => handleEditForFait(e)}><Button  onClick={handleChangeToFait}  className={classes.greenButton}>Fait</Button></form>)}</td>
                                     <td className={classes.case}>
                                         <Button onClick={handleChangeToEdit} className={classes.blueButton} >Edit</Button>
                                         <Button onClick={() => dispatch(deleteTask(taskData.id))} className={classes.warningButton}>Delete</Button>
@@ -106,7 +101,7 @@ export default function Tasks(task){
                                             </form> 
                                             </td>
                                             <td>{taskData.date_task}</td>
-                                            <td>{(taskData.fait==1? <img className={classes.imagesproject} src={images} alt="" />:<Button onClick={handleChangeToFait}  className={classes.greenButton}>Fait</Button>)}</td>
+                                            <td>{(taskData.fait==1? <img className={classes.imagesproject} src={checkbox} alt="" />:<Button onClick={handleChangeToFait}  className={classes.greenButton}>Fait</Button>)}</td>
                                             <td className={classes.case}>
                                                 <Button onClick={handleChangeToEdit} className={classes.blueButton} >Edit</Button>
                                                 <Button className={classes.warningButton}>Delete</Button>
@@ -114,9 +109,7 @@ export default function Tasks(task){
                                                                  
                                     </tr>
                         }
-                    </tbody>
-                </table>
-            </div>
+            {/* </div> */}
         </>
     )
     
